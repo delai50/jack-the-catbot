@@ -1,0 +1,6 @@
+.env
+docs/*
+__pycache__
+*/__pycache__
+*/gradio_cached_examples
+persistent_dir/*
