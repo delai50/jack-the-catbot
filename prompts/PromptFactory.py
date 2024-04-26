@@ -27,7 +27,7 @@ class PromptFactory:
                             If it does not seem like you can write code to answer the question, just return "I don't know" as the answer.
                             Ok, now take a deep breath and do the task step by step.
                                 
-                            # Question: {question}
+                            # Question: {}
                             
                             # Answer:
                             """

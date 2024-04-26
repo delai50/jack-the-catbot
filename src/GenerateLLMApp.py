@@ -90,8 +90,6 @@ class LLMApp(PromptFactory):
     def create_python_agent(self):
         self.logger.info(f'[{LOG_LEVEL}] Creating Python Agent...')
 
-        agent_prompt = PromptTemplate.from_template(self.python_agent_template)
-
         agent = create_python_agent(
             self.model, 
             tool = PythonREPLTool(),
@@ -142,7 +140,7 @@ class LLMApp(PromptFactory):
 
         elif "python" in route.lower():
             chain = self.create_python_agent()
-            answer = chain.invoke({'input': message})
+            answer = chain.invoke({'input': self.python_agent_template.format(message)})
             answer["answer"] = answer["output"]
 
         else:
