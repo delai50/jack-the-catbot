@@ -140,8 +140,8 @@ class LLMApp(PromptFactory):
 
         elif "python" in route.lower():
             chain = self.create_python_agent()
-            answer = chain.invoke({'input': self.python_agent_template.format(message)})
-            answer["answer"] = answer["output"]
+            answer = chain.invoke({'input': message})
+            answer["answer"] = answer["output"] 
 
         else:
             chain = self.genetate_neutral_chain()
