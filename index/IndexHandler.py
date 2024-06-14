@@ -39,7 +39,7 @@ class Index:
         from the data inside the self.docs_path directory.
         """
         documents = sorted(self.docs_path.glob('*'))
-        data = {}
+        data = []
 
         self.logger.info(f'[{LOG_LEVEL}] Loading documents...')
 
@@ -56,7 +56,7 @@ class Index:
                 self.logger.error(f'The file extension {extension} is not supported.')
                 continue
 
-            data = data_loader.load()
+            data.append(data_loader.load())
 
         return data
 
@@ -74,7 +74,9 @@ class Index:
     def split_data(self, data):
         self.logger.info(f'[{LOG_LEVEL}] Spliting documents...')
 
-        data_split = self.data_splitter.split_documents(data)
+        data_split = []
+        for doc in data:
+            data_split.extend(self.data_splitter.split_documents(doc))
 
         return data_split
 

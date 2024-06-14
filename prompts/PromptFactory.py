@@ -24,7 +24,8 @@ class PromptFactory:
                             questionanswer, python, or other, even if they contain typos or slight variations.
             
                             For a given input, you need to output a single token `questionanswer`, `python`, or `other`.
-                            Do not respond with more than one word.
+                            Do not respond with more than one word. If you doubt between `questionanswer` or `other`,
+                            priorizite `questionanswer`.
             
                             Choose the proper class based on the following definitions:
                             
